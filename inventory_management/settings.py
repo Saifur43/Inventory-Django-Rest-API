@@ -13,7 +13,9 @@ SECRET_KEY = 'django-insecure-l-@bokgah%v^4cch#pkjmy1tgpuoo-prjm5w-l$@k2(4)6^cns
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+'inventory-django-rest-api-production.up.railway.app'
+]
 
 
 # Application definition

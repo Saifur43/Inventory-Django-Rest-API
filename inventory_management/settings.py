@@ -14,7 +14,8 @@ SECRET_KEY = 'django-insecure-l-@bokgah%v^4cch#pkjmy1tgpuoo-prjm5w-l$@k2(4)6^cns
 DEBUG = True
 
 ALLOWED_HOSTS = [
-'inventory-django-rest-api-production.up.railway.app'
+'inventory-django-rest-api-production.up.railway.app',
+'127.0.0.1'
 ]
 
 
@@ -24,6 +25,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'inventory',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +45,7 @@ REST_FRAMEWORK = {
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,6 +54,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # React frontend
+    'https://inventory-django-rest-api-production.up.railway.app',
+]
+
+CORS_ALLOW_CREDENTIALS = True  # If using cookies or credentials
 
 ROOT_URLCONF = 'inventory_management.urls'
 
